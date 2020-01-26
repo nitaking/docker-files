@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  db:
+  db-mysql:
     build: ./mysql
     image: mysql:5.7
     restart: always
@@ -15,3 +15,5 @@ services:
       - ./mysql/initdb.d:/docker-entrypoint-initdb.d
       - ./mysql/conf.d:/etc/mysql/conf.d
       - ./log/mysql:/var/log/mysql
+      - $HOME/docker-volumes/db-mysql/mysql:/var/lib/mysql
+
