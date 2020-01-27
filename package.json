@@ -1,0 +1,21 @@
+{
+  "name": "docker-files",
+  "version": "1.0.0",
+  "description": "docker files",
+  "main": "index.js",
+  "scripts": {
+    "up": "docker-compose up -d",
+    "down": "docker-compose down",
+    "ps": "docker-compose ps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitaking/docker-files.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitaking/docker-files/issues"
+  },
+  "homepage": "https://github.com/nitaking/docker-files#readme"
+}
