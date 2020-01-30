@@ -1,19 +1,30 @@
-version: '3.3'
+version: "3.3"
 services:
-  db-mysql:
+  mysql:
     build: ./mysql
     image: mysql:5.7
     restart: always
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    command:
-      mysqld --sql-mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
-    container_name: mysql
+    command: mysqld --sql-mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+    container_name: common-mysql
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
-      - ./mysql/conf.d:/etc/mysql/conf.d
-      - ./log/mysql:/var/log/mysql
-      - $HOME/docker-volumes/db-mysql/mysql:/var/lib/mysql
+      - $HOME/docker-volumes/common-mysql/mysql:/var/lib/mysql
 
+  redis:
+    image: redis:4.0.9-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - $HOME/docker-volumes/common-redis/redis:/data
+    container_name: common-redis
+
+  mongo:
+    image: mongo:3.7.5
+    ports:
+      - "27017:27017"
+    volumes:
+      - $HOME/docker-volumes/common-mongo/mongo:/data/db
+    container_name: common-mongo

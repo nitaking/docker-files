@@ -6,7 +6,8 @@
   "scripts": {
     "up": "docker-compose up -d",
     "down": "docker-compose down",
-    "ps": "docker-compose ps"
+    "ps": "docker-compose ps",
+    "prettier": "npx prettier --write docker-compose.yml"
   },
   "repository": {
     "type": "git",
