@@ -6,7 +6,8 @@
   "scripts": {
     "up": "docker-compose up -d",
     "down": "docker-compose down",
-    "dump:test": "docker exec -it common-mysql mysqldump -u root test > test.sql",
+    "docker": "docker-compose",
+    "dump:test": "docker exec -it common-mysql mysqldump -u root test > test.sql; gzip --force ./test.sql",
     "ps": "docker-compose ps",
     "prettier": "npx prettier --write docker-compose.yml"
   },
