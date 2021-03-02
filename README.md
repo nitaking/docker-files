@@ -1,6 +1,12 @@
 # About
 docker files
 
+# Container
+
+- common-mysql: mysq@5.7
+- common-redis: redis@4.0.9-alpine
+- common-mongo: mongo@3.7.5
+- 
 # Script
 
 Script | 説明
@@ -12,8 +18,3 @@ Script | 説明 | ex
 --- | --- | ---
 docker-compose up -d `<container-name>` | 個別コンテナ起動 | docker-compose up -d common-mysql<br>
 
-# Container
-
-- common-mysql@5.7
-- common-redis@4.0.9-alpine
-- common-mongo@3.7.5
